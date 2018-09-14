@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup # scraper
 import re #regex
 from datetime import datetime #allows us to add current time
 import mysql.connector #allows connection to database. #pip install mysql-connector-python
-from mysql.connector import errorcode
+#from mysql.connector import errorcode #test connection to database
 # user: yuri pass: STyecJowufkuph9
 
 #DB Config
@@ -16,17 +16,17 @@ config = {
 }
 #test connection to DB
 
-try:
-  cnx = mysql.connector.connect(**config)
-except mysql.connector.Error as err:
-  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with your user name or password")
-  elif err.errno == errorcode.ER_BAD_DB_ERROR:
-    print("Database does not exist")
-  else:
-    print(err)
-else:
-  cnx.close()
+#try:
+#  cnx = mysql.connector.connect(**config)
+#except mysql.connector.Error as err:
+#  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+#    print("Something is wrong with your user name or password")
+#  elif err.errno == errorcode.ER_BAD_DB_ERROR:
+#    print("Database does not exist")
+#  else:
+#    print(err)
+#else:
+#  cnx.close()
 
 # This is a scraper for mimovrste.com; We'll be finding the cheapest price of hard drives in each size from 1TB to 12TB.
 
@@ -58,7 +58,7 @@ print name1TB
 
 # Get Price
 getPriceLine1TB = findPrice1TB[186]
-price1TB = str(getPriceLine1TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','') #TODO: Might need to replace , to . 
+price1TB = str(getPriceLine1TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','').replace(",",".")
 print price1TB
 #2TB
 getHTML2TB = requests.get(getLink2TB)
@@ -74,7 +74,7 @@ print name2TB
 
 # Get Price
 getPriceLine2TB = findPrice2TB[186]
-price2TB = str(getPriceLine2TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','') #TODO: Might need to replace , to . 
+price2TB = str(getPriceLine2TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','').replace(",",".")
 print price2TB
 #3TB
 getHTML3TB = requests.get(getLink3TB)
@@ -90,7 +90,7 @@ print name3TB
 
 # Get Price
 getPriceLine3TB = findPrice3TB[189]
-price3TB = str(getPriceLine3TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','') #TODO: Might need to replace , to . 
+price3TB = str(getPriceLine3TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','').replace(",",".")
 print price3TB
 #4TB
 getHTML4TB = requests.get(getLink4TB)
@@ -106,7 +106,7 @@ print name4TB
 
 # Get Price
 getPriceLine4TB = findPrice4TB[180]
-price4TB = str(getPriceLine4TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','') #TODO: Might need to replace , to . 
+price4TB = str(getPriceLine4TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','').replace(",",".")
 print price4TB
 
 #5TB
@@ -123,7 +123,7 @@ print name5TB
 
 # Get Price
 getPriceLine5TB = findPrice5TB[175]
-price5TB = str(getPriceLine5TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','') #TODO: Might need to replace , to . 
+price5TB = str(getPriceLine5TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','').replace(",",".")
 print price5TB
 
 
@@ -141,7 +141,7 @@ print name6TB
 
 # Get Price
 getPriceLine6TB = findPrice6TB[182]
-price6TB = str(getPriceLine6TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','') #TODO: Might need to replace , to . 
+price6TB = str(getPriceLine6TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','').replace(",",".")
 print price6TB
 #8TB
 getHTML8TB = requests.get(getLink8TB)
@@ -157,7 +157,7 @@ print name8TB
 
 # Get Price
 getPriceLine8TB = findPrice8TB[176]
-price8TB = str(getPriceLine8TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','') #TODO: Might need to replace , to . 
+price8TB = str(getPriceLine8TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','').replace(",",".")
 print price8TB
 #10TB
 getHTML10TB = requests.get(getLink10TB)
@@ -173,7 +173,7 @@ print name10TB
 
 # Get Price
 getPriceLine10TB = findPrice10TB[171]
-price10TB = str(getPriceLine10TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','') #TODO: Might need to replace , to . 
+price10TB = str(getPriceLine10TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','').replace(",",".")
 print price10TB
 #12TB
 getHTML12TB = requests.get(getLink12TB)
@@ -189,7 +189,7 @@ print name12TB
 
 # Get Price
 getPriceLine12TB = findPrice12TB[162]
-price12TB = str(getPriceLine12TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','') #TODO: Might need to replace , to . 
+price12TB = str(getPriceLine12TB).replace('<span class="lst-product-item-price-value">','').replace(' €</span>','').replace(",",".")
 print price12TB
 
 

@@ -2,6 +2,14 @@
 
 Trying to create a working scraper for certain websites outputing cheapest prices for certain items. Plans for Mimovrste and Mindfactory. Scripts are meant to go in crontab to run daily/weekly and dump prices into a local database using MySQL from which we can later fetch results or even create a PHP website showing these prices in some form or another. 
 
+## Languages and programs used
+
+* Python
+* PHP and PHPMyAdmin
+* MySQL
+* Adobe Illustrator
+* Visual Studio Code
+
 
 ## What I've learned
 
@@ -33,14 +41,20 @@ I imported the following:
 
 ## Changelog
 
-### September 14, 2018
+### September 16, 2018
 
-* Seperated scrapers into folders
-* Finished Mimovrste scraper for lowest prices of hard drives
+* Added scraper for SSDs
+* Created 250x250 icons for CPU, Motherboard, Memory, HDD, SSD and Video Cards
+* Added bootstrap and initial layout of the website
 
 ### September 15, 2018
 
 * Created the initial state of the website that will show everything
+
+### September 14, 2018
+
+* Seperated scrapers into folders
+* Finished Mimovrste scraper for lowest prices of hard drives
 
 ## TODO
 

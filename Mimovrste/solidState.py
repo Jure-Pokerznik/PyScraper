@@ -63,7 +63,7 @@ for link, size in zip(links, sizes):
         val = (title, size, price_strip, currentDate, priceGB)
         mycursor.execute(sql,val)
         mydb.commit()
-        print(mycursor.rowcount, "Hard drives added!")
+        print(mycursor.rowcount, "SSDs added!")
 
     else:
         print "Something failed"

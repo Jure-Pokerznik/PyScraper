@@ -33,16 +33,23 @@ I imported the following:
 
 ## Changelog
 
-### September, 14
+### September 14, 2018
 
 * Seperated scrapers into folders
 * Finished Mimovrste scraper for lowest prices of hard drives
+
+### September 15, 2018
+
+* Created the initial state of the website that will show everything
 
 ## TODO
 
 + Add handling for unavailable disks in the mimovrste-lowest-price
 + Add all available HDDs from mindfactory
-+ Create php site that will display all data
-+ Add SQL dump with daily prices
++ Add SQL/CSV dump with daily prices
 + Replace any commas into underscores or similar characters
 + Statistics for all-time lowest / highest + average prices for each category
++ Bootstrap website
+
+## Working on
++ Create php site that will display all data 

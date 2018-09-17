@@ -52,22 +52,23 @@ for link, size in zip(links, sizes):
         #price per GB
         priceGB = float(price_strip)/int(size) #*1000 for per TB
 
+        #link
+        href_container = soupify.find('a', {'class': 'lay-block'})['href']
+        href = "https://www.mimovrste.com" + href_container
+
         #print title
         #print size +" GB"
         #print price_strip + " EUR"
         #print currentDate
         #print priceGB
+        #print href
 
         mycursor = mydb.cursor()
-        sql = "INSERT INTO ssd (name, size, price, date, priceGB) VALUES (%s, %s, %s, %s, %s)"
-        val = (title, size, price_strip, currentDate, priceGB)
+        sql = "INSERT INTO ssd (name, size, price, date, priceGB, href, store) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        val = (title, size, price_strip, currentDate, priceGB, href, "Mimovrste")
         mycursor.execute(sql,val)
         mydb.commit()
         print(mycursor.rowcount, "SSDs added!")
 
     else:
-        print "Something failed"
-
-    # Add data to DB
-
-
+        print "Something failed for " + size + " GB SSD"

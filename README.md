@@ -41,6 +41,11 @@ I imported the following:
 
 ## Changelog
 
+### September 17, 2018
+
+* Added links to hard drives and SSDs
+* Updated database to allow for links and store names
+
 ### September 16, 2018
 
 * Added scraper for SSDs

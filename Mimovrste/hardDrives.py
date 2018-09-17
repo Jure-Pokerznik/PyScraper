@@ -36,6 +36,7 @@ for link, size in zip(links, sizes):
     getHTMLr = getHTML.content # This will give you raw HTML from getLink1TB
     soupify = BeautifulSoup(getHTMLr, 'html.parser')
     containers = soupify.find("div",{"class":"lst-product-item-body"})
+    #print containers
     if containers > 0: #if there are no available items, it returns 0
         #title
         title_container = containers.find("h3", {"class":"lst-product-item-title"})
@@ -47,19 +48,25 @@ for link, size in zip(links, sizes):
         #price per TB
         priceTB = float(price_strip)/int(size)
 
+        #link
+        href_container = soupify.find('a', {'class': 'lay-block'})['href']
+        href = "https://www.mimovrste.com" + href_container
+        
+        
         #print title
         #print size + "TB"
         #print price_strip + " EUR"
         #print currentDate
         #print priceTB
+        #print href
         mycursor = mydb.cursor()
-        sql = "INSERT INTO hdd (name, size, price, date, priceTB) VALUES (%s, %s, %s, %s, %s)"
-        val = (title, size, price_strip, currentDate, priceTB)
+        sql = "INSERT INTO hdd (name, size, price, date, priceTB, href, store) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        val = (title, size, price_strip, currentDate, priceTB, href, "Mimovrste")
         mycursor.execute(sql,val)
         mydb.commit()
         print(mycursor.rowcount, "Hard drives added!")
 
     else:
-        print "Something failed"
+        print "Size not added: " + size + " TB"
     # Add data to DB
     

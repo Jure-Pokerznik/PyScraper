@@ -49,10 +49,10 @@ for link, size in zip(links, sizes):
         priceTB = float(price_strip)/int(size)
 
         #link
-        href_container = soupify.find('a', {'class': 'lay-block'})['href']
+        href_container = soupify.find('a',{'class':'lay-block'})['href']
         href = "https://www.mimovrste.com" + href_container
         
-        
+        store = "Mimovrste"
         #print title
         #print size + "TB"
         #print price_strip + " EUR"
@@ -61,7 +61,7 @@ for link, size in zip(links, sizes):
         #print href
         mycursor = mydb.cursor()
         sql = "INSERT INTO hdd (name, size, price, date, priceTB, href, store) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        val = (title, size, price_strip, currentDate, priceTB, href, "Mimovrste")
+        val = (title, size, price_strip, currentDate, priceTB, href, store)
         mycursor.execute(sql,val)
         mydb.commit()
         print(mycursor.rowcount, "Hard drives added!")

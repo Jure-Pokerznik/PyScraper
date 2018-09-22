@@ -53,7 +53,7 @@ for link, size in zip(links, sizes):
         priceGB = float(price_strip)/int(size) #*1000 for per TB
 
         #link
-        href_container = soupify.find('a', {'class': 'lay-block'})['href']
+        href_container = soupify.find('a',{'class':'lay-block'})['href']
         href = "https://www.mimovrste.com" + href_container
 
         #print title

@@ -24,7 +24,7 @@
 
 
                 $result = mysqli_query($con,"SELECT * FROM cpu
-                 WHERE threads BETWEEN $threadmin AND $threadmin AND
+                 WHERE threads BETWEEN $threadmin AND $threadmax AND
                  price BETWEEN $pricelow AND $pricehigh AND 
                  price_percore BETWEEN $pricetotallow AND $pricetotalhigh AND
                  date BETWEEN $datestart AND $dateend");
@@ -40,7 +40,7 @@
                   <td><?php echo $row['store'] ?></td>
                   <td><?php echo $row['brand'] ?></td>
                   <td><?php echo $row['date'] ?></td>
-                  <td><a href="<?php echo $row['link'] ?>"target="_blank">LINK</a></td>
+                  <td><a href="<?php echo $row['href'] ?>"target="_blank">LINK</a></td>
 
                 </tr>
              <?php

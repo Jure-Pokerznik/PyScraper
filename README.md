@@ -22,6 +22,10 @@ I imported the following:
 
 ## Changelog
 
+### September 24, 2018
+
+* Fixed processor scrapper to show correct URLs
+
 ### September 22, 2018
 
 * Added processor scraper for mimovrste

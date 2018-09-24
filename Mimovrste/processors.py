@@ -55,7 +55,7 @@ for link, thread in zip(linksAMD, threads):
     #if 'odprta' in titles_containter:
     #    print "open box, skipping"
     #else:
-    for titles, prices in zip(titles_containter, prices_container):
+    for titles, prices, hrefy in zip(titles_containter, prices_container, soupify.find_all("a",{"class":"lay-block"}, href=True)):
         title = titles.text.strip()
         href_container = soupify.find('a',{'class':'lay-block'})['href']
         if "odprta" not in title:
@@ -69,7 +69,7 @@ for link, thread in zip(linksAMD, threads):
             price_percore = float(price_strip)/int(thread)
             print price_percore
             store = "Mimovrste"
-            href = "https://www.mimovrste.com" + href_container
+            href = "https://www.mimovrste.com" + hrefy['href']
             print href
             brand = "AMD"
             mycursor = mydb.cursor()
@@ -84,14 +84,15 @@ for link, thread in zip(linksAMD, threads):
 
 for link, thread in zip(linksIntel, threads): 
     getHTML = requests.get(link)
-    getHTMLr = getHTML.content # This will give you raw HTML from getLink1TB
+    getHTMLr = getHTML.content
     soup = BeautifulSoup(getHTMLr, 'html.parser')
-    soupify = soup.find("main",{"class":"main-container clearfix"})
+    soupify = soup.find("main",{"class":"main-container clearfix"}) 
     titles_containter = soupify.find_all("h3",{"class":"lst-product-item-title"})
     prices_container = soupify.find_all("span",{"class":"lst-product-item-price-value"})
-    for titles, prices in zip(titles_containter, prices_container):
-        title = titles.text.strip()
-        href_container = soupify.find('a',{'class':'lay-block'})['href']
+    for titles, prices, hrefy in zip(titles_containter, prices_container, soupify.find_all("a",{"class":"lay-block"}, href=True)):
+        title_n = titles.text.strip()
+        title = re.sub('[^A-Za-z0-9 -]+', '', title_n) #replace all non letter or number characters with nothing
+        #print href_container
         if "odprta" not in title:
             price = prices.text.strip()
             #price_container = title.find("span", {"class":"lst-product-item-price-value"})
@@ -103,7 +104,7 @@ for link, thread in zip(linksIntel, threads):
             price_percore = float(price_strip)/int(thread)
             print price_percore
             store = "Mimovrste"
-            href = "https://www.mimovrste.com" + href_container
+            href = "https://www.mimovrste.com" + hrefy['href']
             print href
             brand = "Intel"
             mycursor = mydb.cursor()

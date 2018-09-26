@@ -10,6 +10,7 @@ Trying to create a working scraper for certain websites outputing cheapest price
 * MySQL
 * Adobe Illustrator
 * Visual Studio Code
+* Morris.js
 
 ### Import
 

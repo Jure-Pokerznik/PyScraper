@@ -8,5 +8,6 @@
     <meta name="author" content="">
     <title>PriceScraper</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     </head> 
     <body>

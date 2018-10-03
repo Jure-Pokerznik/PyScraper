@@ -23,6 +23,10 @@ I imported the following:
 
 ## Changelog
 
+### October 3, 2018
+
+* HDD and SSD trends with charts
+
 ### September 24, 2018
 
 * Fixed processor scrapper to show correct URLs
@@ -59,7 +63,9 @@ I imported the following:
 + Add SQL/CSV dump with daily prices
 + Replace any commas into underscores or similar characters
 + Statistics for all-time lowest / highest + average prices for each category
-+ Bootstrap website
++ Trends - Min, Average and Max prices for GPUs
 
 ## Working on
+
 + Create php site that will display all data 
+

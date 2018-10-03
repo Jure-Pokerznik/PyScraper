@@ -109,16 +109,6 @@ $hdd12tb = substr ($hdd12tb, 0, -2);
         </div>
     </div>
 </div>
-
-
-
-
-<?php
-include "connect.php";
-//include "hardDrives.php";
-?>
-
-
 <?php
 include "footer.php";
 ?>
@@ -127,158 +117,106 @@ include "footer.php";
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script>
 new Morris.Line({
-  // ID of the element in which to draw the chart.
+
   element: 'hdd1tb',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
   data: [
       <?php echo $hdd1tb ?>
   ],
-  // The name of the data record attribute that contains x-values.
   xkey: 'date',
-  // A list of names of data record attributes that contain y-values.
   ykeys: ['price'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
   labels: ['Price']
 });
 
 new Morris.Line({
-  // ID of the element in which to draw the chart.
+
   element: 'hdd2tb',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
   data: [
       <?php echo $hdd2tb ?>
   ],
-  // The name of the data record attribute that contains x-values.
   xkey: 'date',
-  // A list of names of data record attributes that contain y-values.
   ykeys: ['price'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
   labels: ['Price']
 });
 
 new Morris.Line({
-  // ID of the element in which to draw the chart.
+
   element: 'hdd3tb',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
   data: [
       <?php echo $hdd3tb ?>
   ],
-  // The name of the data record attribute that contains x-values.
   xkey: 'date',
-  // A list of names of data record attributes that contain y-values.
   ykeys: ['price'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
   labels: ['Price']
 });
 
 new Morris.Line({
-  // ID of the element in which to draw the chart.
+
   element: 'hdd4tb',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
   data: [
       <?php echo $hdd4tb ?>
   ],
-  // The name of the data record attribute that contains x-values.
   xkey: 'date',
-  // A list of names of data record attributes that contain y-values.
   ykeys: ['price'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
   labels: ['Price']
 });
 
 new Morris.Line({
-  // ID of the element in which to draw the chart.
+
   element: 'hdd5tb',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
   data: [
       <?php echo $hdd5tb ?>
   ],
-  // The name of the data record attribute that contains x-values.
+  
   xkey: 'date',
-  // A list of names of data record attributes that contain y-values.
   ykeys: ['price'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
   labels: ['Price']
 });
 
 new Morris.Line({
-  // ID of the element in which to draw the chart.
+
   element: 'hdd6tb',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
   data: [
       <?php echo $hdd6tb ?>
   ],
-  // The name of the data record attribute that contains x-values.
+  
   xkey: 'date',
-  // A list of names of data record attributes that contain y-values.
   ykeys: ['price'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
   labels: ['Price']
 });
 
 new Morris.Line({
-  // ID of the element in which to draw the chart.
+
   element: 'hdd8tb',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
   data: [
       <?php echo $hdd8tb ?>
   ],
-  // The name of the data record attribute that contains x-values.
+  
   xkey: 'date',
-  // A list of names of data record attributes that contain y-values.
   ykeys: ['price'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
   labels: ['Price']
 });
 
 new Morris.Line({
-  // ID of the element in which to draw the chart.
+
   element: 'hdd10tb',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
   data: [
       <?php echo $hdd10tb ?>
   ],
-  // The name of the data record attribute that contains x-values.
   xkey: 'date',
-  // A list of names of data record attributes that contain y-values.
   ykeys: ['price'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
   labels: ['Price']
 });
 
 new Morris.Line({
-  // ID of the element in which to draw the chart.
+
   element: 'hdd12tb',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
   data: [
       <?php echo $hdd12tb ?>
   ],
-  // The name of the data record attribute that contains x-values.
   xkey: 'date',
-  // A list of names of data record attributes that contain y-values.
   ykeys: ['price'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
   labels: ['Price']
 });
 </script>
-  
   </body>
 </html>

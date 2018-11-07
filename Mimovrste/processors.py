@@ -14,9 +14,6 @@ config = {
 }
 mydb = mysql.connector.connect(**config)
 
-
-# Search for Ryzen in SQL with WHERE LIKE =%Ryzen 3% or similar.
-
 linksAMD = [ 
     "https://www.mimovrste.com/procesorji?o=_price&b%5B%5D=amd&p%5BTHREADS%5D%5B%5D=2", #2 Thread
     "https://www.mimovrste.com/procesorji?o=_price&b%5B%5D=amd&p%5BTHREADS%5D%5B%5D=4", #4 Thread

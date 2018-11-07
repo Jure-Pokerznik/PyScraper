@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*- #declared to avoid issues with eur sign in python 2.7
 import requests  # python-requests.org (pip install requests)
-from bs4 import BeautifulSoup # scraper
+from bs4 import BeautifulSoup # scraper (pip install bs4)
 import re #regex
 from datetime import datetime #allows us to add current time
 import mysql.connector #allows connection to database. #pip install mysql-connector-python

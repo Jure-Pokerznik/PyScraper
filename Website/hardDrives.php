@@ -29,7 +29,7 @@
                 {
                 ?>
                 <tr>
-                  <td><?php echo $row['name'] ?></td>
+                  <td><a href="<?php echo $row['href'];?>" target="_blank"><?php echo $row['name'] ?></a></td>
                   <td><?php echo $row['size'] ?> TB</td>
                   <td><?php echo $row['price'] ?> €</td>
                   <td><?php echo $row['priceTB']?> €/TB</td>

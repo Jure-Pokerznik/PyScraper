@@ -70,26 +70,32 @@ while ($row = mysqli_fetch_array($result480)){
     $ssd480 .="{date:'".$row["date"]."', price:".$row["price"]."}, ";
   };
 $ssd480 = substr ($ssd480, 0, -2);
+
 while ($row = mysqli_fetch_array($result500)){
   $ssd500 .="{date:'".$row["date"]."', price:".$row["price"]."}, ";
 };
 $ssd500 = substr ($ssd500, 0, -2);
+
 while ($row = mysqli_fetch_array($result512)){
   $ssd512 .="{date:'".$row["date"]."', price:".$row["price"]."}, ";
 };
 $ssd512 = substr ($ssd512, 0, -2);
+
 while ($row = mysqli_fetch_array($result960)){
   $ssd960 .="{date:'".$row["date"]."', price:".$row["price"]."}, ";
 };
 $ssd960 = substr ($ssd960, 0, -2);
+
 while ($row = mysqli_fetch_array($result1000)){
   $ssd1000 .="{date:'".$row["date"]."', price:".$row["price"]."}, ";
 };
 $ssd1000 = substr ($ssd1000, 0, -2);
+
 while ($row = mysqli_fetch_array($result2000)){
   $ssd2000 .="{date:'".$row["date"]."', price:".$row["price"]."}, ";
 };
 $ssd2000 = substr ($ssd2000, 0, -2);
+
 while ($row = mysqli_fetch_array($result4000)){
   $ssd4000 .="{date:'".$row["date"]."', price:".$row["price"]."}, ";
 };
@@ -116,6 +122,8 @@ $ssd4000 = substr ($ssd4000, 0, -2);
               <div id="ssd500" style="height: 250px;"></div>
             <h2> 512GB</h2>
               <div id="ssd512" style="height: 250px;"></div>
+            <h2> 960GB</h2>
+              <div id="ssd960" style="height: 250px;"></div>
             <h2> 1000GB</h2>
               <div id="ssd1000" style="height: 250px;"></div>
             <h2> 2000GB</h2>
@@ -223,6 +231,18 @@ new Morris.Line({
   element: 'ssd512',
   data: [
       <?php echo $ssd512 ?>
+  ],
+  xkey: 'date',
+  ykeys: ['price'],
+  labels: ['Price']
+});
+</script>
+<script>
+new Morris.Line({
+
+  element: 'ssd960',
+  data: [
+      <?php echo $ssd960 ?>
   ],
   xkey: 'date',
   ykeys: ['price'],

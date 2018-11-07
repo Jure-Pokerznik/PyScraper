@@ -23,6 +23,10 @@ I imported the following:
 
 ## Changelog
 
+### October 15, 2018
+
+* Fixed missing 960GB SSD entry
+
 ### October 3, 2018
 
 * HDD and SSD trends with charts

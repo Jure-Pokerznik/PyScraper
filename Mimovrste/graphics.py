@@ -15,7 +15,7 @@ config = {
 mydb = mysql.connector.connect(**config)
 
 
-# Search for Ryzen in SQL with WHERE LIKE =%Ryzen 3% or similar.
-
 linksAMD = [ 
+]
+linksNvidia = [ 
 ]

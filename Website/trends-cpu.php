@@ -3,55 +3,21 @@ include "head.php";
 include "navbar.php";
 include "connect.php";
 //include "content_small.php";
-$amd2thread = "SELECT * FROM mimovrste_scraper.cpu WHERE date = CURDATE() AND threads = 2 AND brand = 'AMD' LIMIT 15";
-$amd4thread = "SELECT * FROM mimovrste_scraper.cpu WHERE date = CURDATE() AND threads = 4 AND brand = 'AMD' LIMIT 15";
-$amd8thread = "SELECT * FROM mimovrste_scraper.cpu WHERE date = CURDATE() AND threads = 8 AND brand = 'AMD' LIMIT 15";
-$amd16thread = "SELECT * FROM mimovrste_scraper.cpu WHERE date = CURDATE() AND threads = 16 AND brand = 'AMD' LIMIT 15";
-$amd24thread = "SELECT * FROM mimovrste_scraper.cpu WHERE date = CURDATE() AND threads = 24 AND brand = 'AMD' LIMIT 15";
-$amd32thread = "SELECT * FROM mimovrste_scraper.cpu WHERE date = CURDATE() AND threads = 32 AND brand = 'AMD' LIMIT 15";
-$amd64thread = "SELECT * FROM mimovrste_scraper.cpu WHERE date = CURDATE() AND threads = 64 AND brand = 'AMD' LIMIT 15";
-
-$intel2thread = "SELECT * FROM mimovrste_scraper.cpu WHERE date = CURDATE() AND threads = 2 AND brand = 'Intel' LIMIT 15";
 
 
-$result120 = mysqli_query($con, $sql120);
-$result128 = mysqli_query($con, $sql128);
-$result240 = mysqli_query($con, $sql240);
-$result250 = mysqli_query($con, $sql250);
-$result256 = mysqli_query($con, $sql256);
-$result480 = mysqli_query($con, $sql480);
-$result500 = mysqli_query($con, $sql500);
-$result512 = mysqli_query($con, $sql512);
-$result960 = mysqli_query($con, $sql960);
-$result1000 = mysqli_query($con, $sql1000);
-$result2000 = mysqli_query($con, $sql2000);
-$result4000 = mysqli_query($con, $sql4000);
-$ssd120 = "";
-$ssd128 = "";
-$ssd240 = "";
-$ssd250 = "";
-$ssd256 = "";
-$ssd480 = "";
-$ssd500 = "";
-$ssd512 = "";
-$ssd960 = "";
-$ssd1000 = "";
-$ssd2000 = "";
-$ssd4000 = "";
+$test = "SELECT * FROM cpu WHERE date = CURDATE()";
 
-while ($row1 = mysqli_fetch_array($result120)){
-  $ssd120 .="{date:'".$row1["date"]."', price:".$row1["price"]."}, ";
-};
-$ssd120 = substr ($ssd120, 0, -2);
+print $test; 
+
 
 ?>
 <div class="container">
     <div class="row justify-content-md-center justify-content-sm-center justify-content-lg-center justify-content-xs-center">
         <div class="col-sm-12 col-md-12 col-lg-9">
-            <h1 align="center"> Solid State Drives</h1>
-            <h2> 120GB</h2>
-              <div id="ssd120" style="height: 250px;"></div>
-              <?php print $ssd120 ?>
+            <h1 align="center"> Processors</h1>
+            <h2>AMD 2 Thread</h2>
+              <div id="amd2" style="height: 250px;"></div>
+              <?php print $amd2 ?>
             <h2> 2TB</h2>
               <div id="hdd2tb" style="height: 250px;"></div>
             <h2> 3TB</h2>
@@ -81,15 +47,16 @@ include "footer.php";
 <script>
 new Morris.Line({
 
-  element: 'ssd120',
+  element: 'amd2',
   data: [
-      <?php echo $ssd120 ?>
+      <?php echo $amd2 ?>
   ],
   xkey: 'date',
   ykeys: ['price'],
   labels: ['Price']
 });
-
+</script>
+<script>
 new Morris.Line({
 
   element: 'hdd2tb',
@@ -131,8 +98,8 @@ new Morris.Line({
   ],
   
   xkey: 'date',
-  ykeys: ['price'],
-  labels: ['Price']
+  ykeys: ['price', 'price2'],
+  labels: ['Price', 'Price2']
 });
 
 new Morris.Line({

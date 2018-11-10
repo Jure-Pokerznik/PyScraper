@@ -67,7 +67,7 @@ for link, size in zip(links, sizes):
 
         mycursor = mydb.cursor()
         sql = "INSERT INTO ssd (name, size, price, date, priceGB, href, store) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        val = (title, size, price_strip, currentDate, priceGB, href, "Mimovrste")
+        val = (title, size, price_strip, currentDate, priceGB, href, store)
         mycursor.execute(sql,val)
         mydb.commit()
         print(mycursor.rowcount, "SSDs added!")

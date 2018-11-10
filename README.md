@@ -23,6 +23,15 @@ I imported the following:
 
 ## Changelog
 
+### November 10, 2018
+
+* Fixed store name in mindfactory-py
+* Added scripts for HDDs and SSDs from Computer Universe
+
+### November 7, 2018
+
+* Added scripts for scraping HDDs and SSDs from Mindfactory
+
 ### October 15, 2018
 
 * Fixed missing 960GB SSD entry

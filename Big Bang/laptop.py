@@ -30,8 +30,16 @@ for box in boxes:
     # Product Type
     producttype = box.find('h3').find('span').text.strip() #TODO: UTF-8 
     # Price
-    productprice = box.find('strong',{"class":'newPrice'}).text.strip()
-    productprice2 = productprice[:4] + "." + productprice[5:7]
+    
+    if not box.find('strong',{"class":'newPrice'}):
+        productprice1 = box.find('strong',{"class":'razPrice'}).text.strip() #find razPrice
+        obroki = int(productprice1[:2])
+        razrez = float(productprice1[3:5] + "." + productprice1[6:8]) 
+        productprice = obroki * razrez
+    else:
+        productprice1 = box.find('strong',{"class":'newPrice'}).text.strip()
+        productprice = productprice1[:4] + "." + productprice1[5:7]
+
     # Product Link
     productlink = root + box.find('a')['href']
     # Product ID
@@ -39,7 +47,7 @@ for box in boxes:
     # Product Availability
     #TODO:Add Availability
     ## Print Data ##
-    print productid + " " + productname + " " + productprice2 + " " + productlink + "\n"
+    print productid + " " + productname + " " + productprice + " " + productlink + "\n"
     
 
 

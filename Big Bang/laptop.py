@@ -1,15 +1,14 @@
 # Import required libraries
-from bs4 import BeautifulSoup
 import requests  # python-requests.org (pip install requests)
-from bs4 import BeautifulSoup # scraper (pip install bs4)
-import re #regex
-from datetime import datetime #allows us to add current time
+from bs4 import BeautifulSoup  # scraper (pip install bs4)
+import re  # regex
+from datetime import datetime  # allows us to add current time
 
 # Insert all available pages into a list we can work with later
 
 root = "https://www.bigbang.si"
 mainlink = "https://www.bigbang.si/prenosni-racunalniki"
-base_url = mainlink + "?pricefrom=170&priceto=3560&OrderBy=25" #low to high
+base_url = mainlink + "?pricefrom=170&priceto=3560&OrderBy=25"  # low to high
 getHTML = requests.get(mainlink).content
 soupify = BeautifulSoup(getHTML, 'html.parser')
 max_pages = soupify.find_all("a",{"class":"number"})
@@ -17,12 +16,12 @@ num_pages = int(max_pages[-1].text.strip())
 pages = ["{}&pagenumber={}".format(base_url, str(page)) for page in range(1, num_pages + 1)]
 
 examplelink = "https://www.bigbang.si/prenosni-racunalniki?pricefrom=170&priceto=3560&OrderBy=25&pagenumber=11"
-currentDate = datetime.now().strftime('%Y-%m-%d') #TODO: time?
+currentDate = datetime.now().strftime('%Y-%m-%d')  # TODO: time?
 
 for page in pages:
     getpage = requests.get(page).content
     soup = BeautifulSoup(getpage, 'html.parser')
-    boxes = soup.find_all('div',{"class":'product-box'}) #all products boxes
+    boxes = soup.find_all('div',{"class":'product-box'})  # all products boxes
     for box in boxes:
         # Name
         productname = box.find('img')['alt']
@@ -42,7 +41,7 @@ for page in pages:
         # Product Link
         productlink = root + box.find('a')['href']
         # Product ID
-        productid = productlink[-6:] #get last 6 numbers which are IDs in this case
+        productid = productlink[-6:]  # get last 6 numbers which are IDs in this case
         # Product Availability
         #TODO:Add Availability
         ## Print Data ##

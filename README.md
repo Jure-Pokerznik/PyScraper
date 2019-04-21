@@ -23,6 +23,10 @@ I imported the following:
 
 ## Changelog
 
+### April 20, 2019
+
+* Added Big Bang Scraper
+
 ### November 10, 2018
 
 * Fixed store name in mindfactory-py
@@ -81,4 +85,5 @@ I imported the following:
 ## Working on
 
 + Create php site that will display all data 
++ Seperate website for Big Bang only, where we'll be able to find prices for -everything-
 

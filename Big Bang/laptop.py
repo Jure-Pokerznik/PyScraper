@@ -3,7 +3,16 @@ import requests  # python-requests.org (pip install requests)
 from bs4 import BeautifulSoup  # scraper (pip install bs4)
 import re  # regex
 from datetime import datetime  # allows us to add current time
+import mysql.connector
 
+# MySQL Config
+config = {
+    'user':'yuri',
+    'password':'STyecJowufkuph9',
+    'host':'192.168.178.77',
+    'database':'bbscraper'
+}
+mydb = mysql.connector.connect(**config)
 # Insert all available pages into a list we can work with later
 
 root = "https://www.bigbang.si"
@@ -34,7 +43,7 @@ for page in pages:
             productprice1 = box.find('strong',{"class":'razPrice'}).text.strip() #find razPrice
             obroki = int(productprice1[:2]) #TODO: Works, but fix numbers.
             razrez = float(productprice1[3:-5] + "." + productprice1[-4:-2]) 
-            productprice = obroki * razrez
+            productprice = float(obroki * razrez)
         else:
             productprice1 = box.find('strong',{"class":'newPrice'}).text.strip()
             productprice = productprice1[0:-5] + "." + productprice1[-4:-2]
@@ -46,8 +55,9 @@ for page in pages:
         #TODO:Add Availability
         ## Print Data ##
         #print productid + " " + productname + " " + productprice + " " + productlink + productimage + "\n"
-        print productid
-        print productname
-        print productprice
-        print productlink
-        print productimage
+        mycursor = mydb.cursor()
+        sql = "INSERT INTO bb (productid, productname, productprice, productlink, productimage, producttype, date) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        val = (productid, productname, productprice, productlink, productimage, producttype, currentDate)
+        mycursor.execute(sql,val)
+        mydb.commit()
+        print(mycursor.rowcount, "Item added!")
